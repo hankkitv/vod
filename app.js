@@ -14,6 +14,7 @@ let autoSlideInterval;
 const SLIDE_DURATION = 15000; // 15 seconds
 
 let isSliderHovered = false;
+let userInteractedWithSlider = false;
 
 async function loadPlugins() {
   try {
@@ -120,7 +121,7 @@ function renderSlider(movies) {
 
     // >>> ADD THIS BLOCK <<<
     slide.addEventListener("mouseenter", () => {
-      sliderContainer.click(); // 
+      if (!userInteractedWithSlider) return; // Prevent action until interaction
       const iframe = slide.querySelector("iframe");
       if (iframe && iframe.contentWindow) {
         iframe.contentWindow.postMessage(
@@ -130,6 +131,7 @@ function renderSlider(movies) {
       }
     });
     slide.addEventListener("mouseleave", () => {
+      if (!userInteractedWithSlider) return; // Prevent action until interaction
       const iframe = slide.querySelector("iframe");
       if (iframe && iframe.contentWindow) {
         iframe.contentWindow.postMessage(
@@ -421,10 +423,17 @@ sliderContainer.addEventListener('mouseleave', (e) => {
   }
 });
 
+// Listen for the first interaction with the slider
+sliderContainer.addEventListener('click', function handleUserInteraction() {
+  userInteractedWithSlider = true;
+  // Optionally, remove listener if you only want to detect the first interaction
+  sliderContainer.removeEventListener('click', handleUserInteraction);
+});
 
 
 // Init
 loadPlugins();
+
 
 
 
