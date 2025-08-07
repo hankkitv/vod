@@ -120,6 +120,7 @@ function renderSlider(movies) {
 
     // >>> ADD THIS BLOCK <<<
     slide.addEventListener("mouseenter", () => {
+      sliderContainer.click(); // 
       const iframe = slide.querySelector("iframe");
       if (iframe && iframe.contentWindow) {
         iframe.contentWindow.postMessage(
@@ -424,6 +425,7 @@ sliderContainer.addEventListener('mouseleave', (e) => {
 
 // Init
 loadPlugins();
+
 
 
 
