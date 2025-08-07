@@ -19,6 +19,30 @@ import episode17 from './episode17.js';
 import episode19 from './episode19.js';
 import episode21 from './episode21.js';
 import episode26 from './episode26.js';
+
+import episode2 from './episode2.js';
+import episode3 from './episode3.js';
+import episode4 from './episode4.js';
+import episode5 from './episode5.js';
+import episode6 from './episode6.js';
+import episode7 from './episode7.js';
+import episode10 from './episode10.js';
+import episode11 from './episode11.js';
+import episode14 from './episode14.js';
+import episode15 from './episode15.js';
+import episode18 from './episode18.js';
+import episode22 from './episode22.js';
+import episode23 from './episode23.js';
+import episode24 from './episode24.js';
+import episode27 from './episode27.js';
+import episode28 from './episode28.js';
+import episode29 from './episode29.js';
+import episode30 from './episode30.js';
+import episode32 from './episode32.js';
+import episode33 from './episode33.js';
+import epidsode24 from './episode24.js';
+
+
 import short1 from './short1.js';
 
 // Add new movie plugins here
@@ -31,7 +55,21 @@ export const plugins = [
   episode19,
   episode21,
   episode26,
-  short1
+  short1,
+  episode2,
+  episode3,
+  episode4,
+  episode5,
+  episode6,
+  episode7,
+  episode10,
+  episode11,
+  episode14,
+  episode15,
+  episode18,
+  episode22,
+  episode23,
+  episode24
 ];
 
 // Shuffle function (Fisher-Yates)
