@@ -97,7 +97,7 @@ function renderSlider(movies) {
     const iframe = document.createElement("iframe");
     iframe.setAttribute(
       "data-src",
-      movie.trailerUrl + "?enablejsapi=1&mute=1&autoplay=1&controls=0&loop=1&rel=0"
+      movie.trailerUrl + "?enablejsapi=1&mute=1&autoplay=1&controls=0&loop=1&rel=0&&hd=1"
     );
     iframe.allow = "autoplay; encrypted-media";
     iframe.setAttribute("frameborder", "0");
@@ -279,7 +279,7 @@ function openMovieDetail(movie) {
     <div id="detail-page">
       <button id="back-btn">← Back</button>
       <h1>${movie.title}</h1>
-      <iframe src="${movie.trailerUrl}?autoplay=1&mute=0&enablejsapi=1&rel=0" 
+      <iframe src="${movie.trailerUrl}?autoplay=1&mute=0&enablejsapi=1&rel=0&hd=1" 
               allow="autoplay; encrypted-media" 
               frameborder="0" 
               allowfullscreen
@@ -404,3 +404,4 @@ sliderContainer.addEventListener('mouseleave', () => {
 
 // Init
 loadPlugins();
+
