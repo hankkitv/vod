@@ -118,6 +118,26 @@ function renderSlider(movies) {
     slide.appendChild(overlay);    
     slide.appendChild(progressBar);
 
+    // >>> ADD THIS BLOCK <<<
+    slide.addEventListener("mouseenter", () => {
+      const iframe = slide.querySelector("iframe");
+      if (iframe && iframe.contentWindow) {
+        iframe.contentWindow.postMessage(
+          '{"event":"command","func":"unMute","args":""}',
+          "*"
+        );
+      }
+    });
+    slide.addEventListener("mouseleave", () => {
+      const iframe = slide.querySelector("iframe");
+      if (iframe && iframe.contentWindow) {
+        iframe.contentWindow.postMessage(
+          '{"event":"command","func":"mute","args":""}',
+          "*"
+        );
+      }
+    });
+    
     sliderContainer.appendChild(slide);
   });
   // sliderContainer.appendChild(prevBtn);
@@ -158,19 +178,19 @@ function updateSliderPosition() {
     iframe.src = newSrc;
 
     // Add hover mute/unmute handlers
-    currentSlide.addEventListener("mouseenter", () => {
-      iframe.contentWindow.postMessage(
-        '{"event":"command","func":"unMute","args":""}',
-        "*"
-      );
-    });
+    // currentSlide.addEventListener("mouseenter", () => {
+    //   iframe.contentWindow.postMessage(
+    //     '{"event":"command","func":"unMute","args":""}',
+    //     "*"
+    //   );
+    // });
 
-    currentSlide.addEventListener("mouseleave", () => {
-      iframe.contentWindow.postMessage(
-        '{"event":"command","func":"mute","args":""}',
-        "*"
-      );
-    });
+    // currentSlide.addEventListener("mouseleave", () => {
+    //   iframe.contentWindow.postMessage(
+    //     '{"event":"command","func":"mute","args":""}',
+    //     "*"
+    //   );
+    // });
 
     // Check hover state now
   // setTimeout(() => {
@@ -404,4 +424,5 @@ sliderContainer.addEventListener('mouseleave', () => {
 
 // Init
 loadPlugins();
+
 
