@@ -397,7 +397,7 @@ sliderContainer.addEventListener("click", (e) => {
   }
 });
 
-sliderContainer.addEventListener('mouseenter', () => {
+sliderContainer.addEventListener('mouseenter', (e) => {
   // isSliderHovered = true;
   // Ignore if entering from inside slider or over nav buttons
   if (!e.relatedTarget || !sliderContainer.contains(e.relatedTarget)) {
@@ -409,7 +409,7 @@ sliderContainer.addEventListener('mouseenter', () => {
 
 });
 
-sliderContainer.addEventListener('mouseleave', () => {
+sliderContainer.addEventListener('mouseleave', (e) => {
   // isSliderHovered = false;
   // Ignore if moving to another child (like buttons)
   if (!e.relatedTarget || !sliderContainer.contains(e.relatedTarget)) {
@@ -424,5 +424,6 @@ sliderContainer.addEventListener('mouseleave', () => {
 
 // Init
 loadPlugins();
+
 
 
