@@ -345,14 +345,47 @@ header {
 
 /* Responsive layout */
 @media (max-width: 600px) {
-  #movie-list {
-    flex-direction: column;
-    align-items: center;
+  /* ...existing mobile styles... */
+
+  /* Make carousel fill the entire viewport width on mobile */
+  #carousel {
+    width: 100vw;
+    margin: 0;
+    padding: 0;
+    left: 50%;
+    right: 50%;
+    transform: translateX(-50%);
+    border-radius: 0;
+  }
+  #carousel-slider {
+    width: 100vw;
+    min-width: 100vw;
+    margin: 0;
+    padding: 0;
+  }
+  .carousel-slide {
+    min-width: 100vw;
+    width: 100vw;
+    margin: 0;
+    padding: 0;
+  }
+  .carousel-slide .slider-overlay {
+    padding-left: 1rem;
+    padding-right: 1rem;
   }
 
-  .movie-card {
-    max-width: 90%;
+  /* Smaller slider title for mobile */
+  .slider-title-mobile {
+    font-size: 1.1rem !important;
+    margin: 0 !important;
+    font-weight: 600;
   }
-
+  .slider-desc-mobile {
+    margin: 0 !important;
+    font-size: 0.93rem;
+    font-weight: normal;
+  }
+  .slider-overlay small {
+    display: none !important;
+  }
 }
-
