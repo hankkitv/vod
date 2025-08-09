@@ -311,23 +311,49 @@ function toggleTheme() {
 function openMovieDetail(movie) {
   document.body.innerHTML = `
     <div id="detail-page">
-      <button id="back-btn">← Back</button>
+      <div class="back-container">
+                <button id="back-btn">← Back</button>
+      </div>
+      <div id="movie-details">
       <h1>${movie.title}</h1>
+
       <iframe src="${movie.trailerUrl}?autoplay=1&mute=0&enablejsapi=1&rel=0&hd=1" 
               allow="autoplay; encrypted-media" 
               frameborder="0" 
               allowfullscreen
               style="width:100%; height:400px;"></iframe>
+
       <p>${movie.description}</p>
       <small>${movie.category}</small>
+      
+        <h3>Cast/Director</h3>
+        ${movie.castAndDirector ? `
+          <p><strong>${movie.castAndDirector.Name}</strong> </p>`:`<p>No Cast information available for this movie.</p>`}
+        <h3>Background Music</h3>
+        ${movie.backgroundMusic ? `
+        <p><strong>${movie.backgroundMusic}</strong> </p>`:`<p>No Background Music information available for this movie.</p>`}
+         
       <h3>Screenshots</h3>
       <div class="screenshots">
-  ${
-    movie.screenshots
-      ?.map((src) => `<img data-src="${src}" loading="lazy" />`)
-      .join("") || "<em>No screenshots</em>"
-  }
-</div>
+        ${
+          movie.screenshots
+            ?.map((src) => `<img data-src="${src}" loading="lazy" />`)
+            .join("") || "<em>No screenshots</em>"
+        }
+      </div>
+
+      <h3>Restaurant Info (if applicable - assuming a movie related restaurant connection)</h3>
+      ${movie.restaurantInfo ? `
+        <div class="restaurant-info">
+          <p><strong>Phone:</strong> ${movie.restaurantInfo.phone}</p>
+          <p><strong>Location:</strong> ${movie.restaurantInfo.location}</p>
+          <p><strong>Menu:</strong> <a href="${movie.restaurantInfo.menuUrl}" target="_blank">View Menu</a></p>
+          <div id="map-container">
+            <iframe src="${movie.restaurantInfo.mapUrl}" width="100%" height="400px" loading="lazy"></iframe>
+          </div>
+        </div>
+      ` : `<p>No restaurant information available for this movie.</p>`}
+      </div>
     </div>
   `;
 
@@ -343,6 +369,9 @@ function openMovieDetail(movie) {
       img.src = actualSrc;
     }
   });
+
+  window.scrollTo(0, 0); // Scroll to the top of the page
+
 }
 
 function formatDuration(seconds) {
@@ -444,6 +473,7 @@ sliderContainer.addEventListener('click', function handleUserInteraction() {
 
 // Init
 loadPlugins();
+
 
 
 
