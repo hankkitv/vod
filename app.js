@@ -105,12 +105,23 @@ function renderSlider(movies) {
     
     const overlay = document.createElement("div");
     overlay.className = "slider-overlay";
-    overlay.innerHTML = `
+    let overlayHtml = `
       <h2>${movie.title}</h2>
       <p>${movie.description}</p>
       <small>${movie.category}</small>
       <button class="play-btn" data-index="${index}">▶ Play</button>      
     `;
+
+    // If on mobile (max-width: 600px), apply the requested changes
+    if (window.matchMedia && window.matchMedia("(max-width: 600px)").matches) {
+      overlayHtml = `
+        <h3 class="slider-title-mobile">${movie.title}</h3>
+        ${movie.description}
+        <button class="play-btn" data-index="${index}">▶ Play</button>
+      `;
+    }
+
+    overlay.innerHTML = overlayHtml;
 
     const progressBar = document.createElement('div');
     progressBar.className = 'slider-progress';
@@ -433,6 +444,7 @@ sliderContainer.addEventListener('click', function handleUserInteraction() {
 
 // Init
 loadPlugins();
+
 
 
 
