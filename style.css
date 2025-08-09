@@ -200,7 +200,7 @@ header {
   text-align: left;         /* ✅ Ensure text is aligned left */
 
   background: rgba(0, 0, 0, 0.6); /* Semi-transparent black backplate */
-  border-radius: 0.75rem;
+  border-radius: 0;
   box-shadow: 0 2px 24px 0 rgba(0,0,0,0.18);
 }
 
@@ -395,5 +395,6 @@ header {
     display: none !important;
   }
 }
+
 
 
