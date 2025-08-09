@@ -116,7 +116,7 @@ function renderSlider(movies) {
     if (window.matchMedia && window.matchMedia("(max-width: 600px)").matches) {
       overlayHtml = `
         <h3 class="slider-title-mobile">${movie.title}</h3>
-        ${movie.description}
+        <p class="slider-desc-mobile">${movie.description}</p>
         <button class="play-btn" data-index="${index}">▶ Play</button>
       `;
     }
@@ -444,6 +444,7 @@ sliderContainer.addEventListener('click', function handleUserInteraction() {
 
 // Init
 loadPlugins();
+
 
 
 
