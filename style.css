@@ -384,8 +384,12 @@ header {
     margin: 0 !important;
     font-size: 0.93rem;
     font-weight: normal;
+    max-width: 95% !important;
+    width: 95%;
+    box-sizing: border-box;
   }
   .slider-overlay small {
     display: none !important;
   }
 }
+
