@@ -190,8 +190,8 @@ header {
   bottom: 0;
   left: 0;
   width: 100%;
-  padding: 1.5rem;
-  background: linear-gradient(to top, rgba(0, 0, 0, 0.8), transparent);
+  padding: 0.7rem 1.5rem 1.1rem 1.5rem;
+  
   color: white;
   display: flex;
   flex-direction: column;
@@ -199,6 +199,9 @@ header {
   gap: 0.5rem;
   text-align: left;         /* ✅ Ensure text is aligned left */
 
+  background: rgba(0, 0, 0, 0.6); /* Semi-transparent black backplate */
+  border-radius: 0.75rem;
+  box-shadow: 0 2px 24px 0 rgba(0,0,0,0.18);
 }
 
 .carousel-slide.show-overlay .slider-overlay {
@@ -392,4 +395,5 @@ header {
     display: none !important;
   }
 }
+
 
