@@ -50,7 +50,7 @@ import short1 from './short1.js';
 export const plugins = [
   episode1, episode13, episode25, episode20, episode12,
   episode9, episode19, episode8, episode21, short1,
-  episode12, episode17, episode26, episode24, episode14,
+  episode17, episode26, episode24, episode14,
   episode18, episode2, episode3, episode15, episode10,
   episode28, episode6, episode30, episode29, episode11,
   episode23, episode4, episode33, episode5, episode22,
@@ -71,4 +71,5 @@ function shuffleArray(array) {
 // export const sliderTrailers = [episode1, episode8, episode12];
 // Select 3 random trailers
 export const sliderTrailers = shuffleArray(plugins).slice(0, 3);
+
 
